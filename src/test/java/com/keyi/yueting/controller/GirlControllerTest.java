@@ -1,4 +1,4 @@
-package com.imooc.controller;
+package com.keyi.yueting.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
