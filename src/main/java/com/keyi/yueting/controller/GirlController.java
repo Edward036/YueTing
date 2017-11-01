@@ -1,10 +1,10 @@
-package com.imooc.controller;
+package com.keyi.yueting.controller;
 
-import com.imooc.domain.Girl;
-import com.imooc.domain.Result;
-import com.imooc.repository.GirlRepository;
-import com.imooc.service.GirlService;
-import com.imooc.utils.ResultUtil;
+import com.keyi.yueting.domain.Girl;
+import com.keyi.yueting.domain.Result;
+import com.keyi.yueting.repository.GirlRepository;
+import com.keyi.yueting.service.GirlService;
+import com.keyi.yueting.utils.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

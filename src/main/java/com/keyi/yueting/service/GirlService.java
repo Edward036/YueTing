@@ -1,9 +1,10 @@
-package com.imooc.service;
+package com.keyi.yueting.service;
 
-import com.imooc.domain.Girl;
-import com.imooc.enums.ResultEnum;
-import com.imooc.exception.GirlException;
-import com.imooc.repository.GirlRepository;
+
+import com.keyi.yueting.domain.Girl;
+import com.keyi.yueting.enums.ResultEnum;
+import com.keyi.yueting.exception.GirlException;
+import com.keyi.yueting.repository.GirlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

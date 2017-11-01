@@ -1,6 +1,7 @@
-package com.imooc.utils;
+package com.keyi.yueting.utils;
 
-import com.imooc.domain.Result;
+
+import com.keyi.yueting.domain.Result;
 
 /**
  * Created by 廖师兄

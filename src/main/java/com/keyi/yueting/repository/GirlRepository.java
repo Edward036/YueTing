@@ -1,6 +1,6 @@
-package com.imooc.repository;
+package com.keyi.yueting.repository;
 
-import com.imooc.domain.Girl;
+import com.keyi.yueting.domain.Girl;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

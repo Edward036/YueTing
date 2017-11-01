@@ -1,6 +1,7 @@
-package com.imooc.exception;
+package com.keyi.yueting.exception;
 
-import com.imooc.enums.ResultEnum;
+
+import com.keyi.yueting.enums.ResultEnum;
 
 /**
  * Created by 廖师兄

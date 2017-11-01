@@ -1,4 +1,4 @@
-package com.imooc.domain;
+package com.keyi.yueting.domain;
 
 /**
  * http请求返回的最外层对象

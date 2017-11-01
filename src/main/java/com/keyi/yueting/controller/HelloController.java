@@ -1,6 +1,6 @@
-package com.imooc.controller;
+package com.keyi.yueting.controller;
 
-import com.imooc.properties.GirlProperties;
+import com.keyi.yueting.properties.GirlProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

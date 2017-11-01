@@ -1,4 +1,4 @@
-package com.imooc.domain;
+package com.keyi.yueting.domain;
 
 import org.hibernate.validator.constraints.NotBlank;
 
