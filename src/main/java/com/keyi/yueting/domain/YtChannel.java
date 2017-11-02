@@ -1,7 +1,5 @@
 package com.keyi.yueting.domain;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,18 +21,38 @@ public class YtChannel {
 //    @Length()
     private Integer id;
 
-    @NotBlank(message = "这个字段必传")
-    @Column(length = 5)
-    private Integer role_id;
-
     @Column(length = 32)
-    private String username;
+    private String channelName;
 
     @NotNull(message = "")
     @Column(length = 32)
-    private String password;
+    private Integer ctime;
 
     public YtChannel() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getChannelName() {
+        return channelName;
+    }
+
+    public void setChannelName(String channelName) {
+        this.channelName = channelName;
+    }
+
+    public Integer getCtime() {
+        return ctime;
+    }
+
+    public void setCtime(Integer ctime) {
+        this.ctime = ctime;
     }
 
     @Override
@@ -42,9 +60,8 @@ public class YtChannel {
         return getClass().getSimpleName() +
                 "{" +
                 "id=" + id +
-                ", role_id='" + role_id + '\'' +
-                ", username=" + username + '\'' +
-                ", password=" + password + '\'' +
+                ", channelName=" + channelName + '\'' +
+                ", ctime=" + ctime + '\'' +
                 '}';
     }
 }

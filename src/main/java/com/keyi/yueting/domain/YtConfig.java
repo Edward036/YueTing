@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 /**
  * Created by 廖师兄
@@ -24,17 +23,26 @@ public class YtConfig {
     private Integer id;
 
     @NotBlank(message = "这个字段必传")
-    @Column(length = 5)
-    private Integer role_id;
-
-    @Column(length = 32)
-    private String username;
-
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String password;
+    @Column(length = 64)
+    private Integer value;
 
     public YtConfig() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getValue() {
+        return value;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
     }
 
     @Override
@@ -42,9 +50,7 @@ public class YtConfig {
         return getClass().getSimpleName() +
                 "{" +
                 "id=" + id +
-                ", role_id='" + role_id + '\'' +
-                ", username=" + username + '\'' +
-                ", password=" + password + '\'' +
+                ", value='" + value + '\'' +
                 '}';
     }
 }
