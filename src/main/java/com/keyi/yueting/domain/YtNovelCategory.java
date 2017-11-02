@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 /**
  * Created by 廖师兄
@@ -25,16 +24,47 @@ public class YtNovelCategory {
 
     @NotBlank(message = "这个字段必传")
     @Column(length = 5)
-    private Integer role_id;
+    private Integer parentId;
 
     @Column(length = 32)
-    private String username;
+    private String title;
 
-    @NotNull(message = "")
     @Column(length = 32)
-    private String password;
+    private Integer sort;
 
     public YtNovelCategory() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
     }
 
     @Override
@@ -42,9 +72,9 @@ public class YtNovelCategory {
         return getClass().getSimpleName() +
                 "{" +
                 "id=" + id +
-                ", role_id='" + role_id + '\'' +
-                ", username=" + username + '\'' +
-                ", password=" + password + '\'' +
+                ", parentId='" + parentId + '\'' +
+                ", title=" + title + '\'' +
+                ", sort=" + sort + '\'' +
                 '}';
     }
 }
