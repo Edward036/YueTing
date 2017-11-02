@@ -25,16 +25,108 @@ public class YtPositionData {
 
     @NotBlank(message = "这个字段必传")
     @Column(length = 5)
-    private Integer role_id;
+    private Integer tId;
 
-    @Column(length = 32)
-    private String username;
+    @Column(length = 16)
+    private Integer typeId;
+
+    @NotNull(message = "")
+    @Column(length = 16)
+    private Integer posId;
 
     @NotNull(message = "")
     @Column(length = 32)
-    private String password;
+    private String thumb;
+
+    @NotNull(message = "")
+    @Column(length = 32)
+    private String toUrl;
+
+    @NotNull(message = "")
+    @Column(length = 256)
+    private String data;
+
+    @NotNull(message = "")
+    @Column(length = 32)
+    private String listOrder;
+
+    @NotNull(message = "")
+    @Column(length = 16)
+    private Integer ctime;
 
     public YtPositionData() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer gettId() {
+        return tId;
+    }
+
+    public void settId(Integer tId) {
+        this.tId = tId;
+    }
+
+    public Integer getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
+
+    public Integer getPosId() {
+        return posId;
+    }
+
+    public void setPosId(Integer posId) {
+        this.posId = posId;
+    }
+
+    public String getThumb() {
+        return thumb;
+    }
+
+    public void setThumb(String thumb) {
+        this.thumb = thumb;
+    }
+
+    public String getToUrl() {
+        return toUrl;
+    }
+
+    public void setToUrl(String toUrl) {
+        this.toUrl = toUrl;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getListOrder() {
+        return listOrder;
+    }
+
+    public void setListOrder(String listOrder) {
+        this.listOrder = listOrder;
+    }
+
+    public Integer getCtime() {
+        return ctime;
+    }
+
+    public void setCtime(Integer ctime) {
+        this.ctime = ctime;
     }
 
     @Override
@@ -42,9 +134,9 @@ public class YtPositionData {
         return getClass().getSimpleName() +
                 "{" +
                 "id=" + id +
-                ", role_id='" + role_id + '\'' +
-                ", username=" + username + '\'' +
-                ", password=" + password + '\'' +
+                ", data='" + data + '\'' +
+                ", listOrder=" + listOrder + '\'' +
+                ", ctime=" + ctime + '\'' +
                 '}';
     }
 }
