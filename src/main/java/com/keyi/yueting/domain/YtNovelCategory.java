@@ -1,5 +1,6 @@
 package com.keyi.yueting.domain;
 
+import org.hibernate.annotations.Table;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
  * 2016-11-03 23:07
  */
 @Entity
+@Table(appliesTo = "yt_novel_category", comment = "小说分类表")
 public class YtNovelCategory {
 
     @Id
@@ -22,15 +24,18 @@ public class YtNovelCategory {
 //    @Length()
     private Integer id;
 
-    @NotBlank(message = "这个字段必传")
-    @Column(length = 5)
-    private Integer parentId;
+    @NotBlank(message = "该字段不能为空")
+    @Column(columnDefinition = "int(16) COMMENT '父分类ID，顶级为0'")
+    private Integer parentId = 0;
 
-    @Column(length = 32)
-    private String title;
+    @NotBlank(message = "该字段不能为空")
+    @Column(columnDefinition = "int(16) COMMENT '排序'")
+    private Integer sort = 0;
 
+    @NotBlank(message = "该字段不能为空")
     @Column(length = 32)
-    private Integer sort;
+    private String title = "";
+
 
     public YtNovelCategory() {
     }
