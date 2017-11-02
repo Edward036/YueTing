@@ -1,7 +1,5 @@
 package com.keyi.yueting.domain;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,205 +21,69 @@ public class YtNovel {
 //    @Length()
     private Integer id;
 
-    @NotBlank(message = "这个字段必传")
-    @Column(length = 5)
+    @Column(columnDefinition = "int(16) COMMENT '长兄ID，0：没有兄弟，大于0：哥哥ID，即priorId'")
     private Integer bid;
 
-    @Column(length = 32)
+    @Column(columnDefinition = "int(16) COMMENT '小说栏目主分类ID'")
+    private Integer catParentId;
+
+    @NotNull(message = "")
+    @Column(columnDefinition = "int(16) COMMENT '小说栏目子分类ID'")
+    private Integer catId;
+
+    @NotNull(message = "")
+    @Column(columnDefinition = "int(16) COMMENT '章节总数'")
+    private Integer chaptTotal;
+
+    @NotNull(message = "")
+    @Column(columnDefinition = "int(2) COMMENT '是否完结，1已完结 0未完结'")
+    private Integer isEnd;
+
+    @NotNull(message = "")
+    @Column(columnDefinition = "int(2) COMMENT '状态：1正常 2下架 3删除'")
+    private Integer status;
+
+    @NotNull(message = "")
+    @Column(columnDefinition = "int(64) COMMENT '播放次数'")
+    private Integer clickNum;
+
+    @NotNull(message = "")
+    @Column(columnDefinition = "int(64) COMMENT '基础播放次数'")
+    private Integer ClickNumBase;
+
+    @NotNull(message = "")
+    @Column(columnDefinition = "varchar(64) COMMENT '书名'")
     private String title;
 
     @NotNull(message = "")
-    @Column(length = 32)
+    @Column(columnDefinition = "varchar(256) COMMENT '封面URL'")
     private String cover;
 
     @NotNull(message = "")
-    @Column(length = 32)
-    private String catId;
-
-    @Column(length = 32)
-    private String catParentId;
-
-    @NotNull(message = "")
-    @Column(length = 32)
+    @Column(columnDefinition = "varchar(64) COMMENT '小说栏目名称'")
     private String catName;
 
     @NotNull(message = "")
-    @Column(length = 32)
+    @Column(columnDefinition = "varchar(64) COMMENT '作者（原著）'")
     private String writer;
 
     @NotNull(message = "")
-    @Column(length = 32)
+    @Column(columnDefinition = "varchar(64) COMMENT '主播'")
     private String player;
 
     @NotNull(message = "")
-    @Column(length = 32, columnDefinition = "varchar(32) COMMENT '简介'")
+    @Column(columnDefinition = "varchar(32) COMMENT '简介'")
     private String brief;
 
     @NotNull(message = "")
-    @Column(length = 32)
-    private String chaptTotal;
+    @Column(columnDefinition = "int(16) COMMENT 'createTime'")
+    private Long ctime;
 
     @NotNull(message = "")
-    @Column(length = 32)
-    private String isEnd;
-
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String status;
-
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String clickNum;
-
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String ClickNumBase;
-
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String ctime;
-
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String utime;
+    @Column(columnDefinition = "int(16) COMMENT 'updateTime'")
+    private Long utime;
 
     public YtNovel() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getBid() {
-        return bid;
-    }
-
-    public void setBid(Integer bid) {
-        this.bid = bid;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getCover() {
-        return cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
-
-    public String getCatId() {
-        return catId;
-    }
-
-    public void setCatId(String catId) {
-        this.catId = catId;
-    }
-
-    public String getCatParentId() {
-        return catParentId;
-    }
-
-    public void setCatParentId(String catParentId) {
-        this.catParentId = catParentId;
-    }
-
-    public String getCatName() {
-        return catName;
-    }
-
-    public void setCatName(String catName) {
-        this.catName = catName;
-    }
-
-    public String getWriter() {
-        return writer;
-    }
-
-    public void setWriter(String writer) {
-        this.writer = writer;
-    }
-
-    public String getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(String player) {
-        this.player = player;
-    }
-
-    public String getBrief() {
-        return brief;
-    }
-
-    public void setBrief(String brief) {
-        this.brief = brief;
-    }
-
-    public String getChaptTotal() {
-        return chaptTotal;
-    }
-
-    public void setChaptTotal(String chaptTotal) {
-        this.chaptTotal = chaptTotal;
-    }
-
-    public String getIsEnd() {
-        return isEnd;
-    }
-
-    public void setIsEnd(String isEnd) {
-        this.isEnd = isEnd;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getClickNum() {
-        return clickNum;
-    }
-
-    public void setClickNum(String clickNum) {
-        this.clickNum = clickNum;
-    }
-
-    public String getClickNumBase() {
-        return ClickNumBase;
-    }
-
-    public void setClickNumBase(String clickNumBase) {
-        ClickNumBase = clickNumBase;
-    }
-
-    public String getCtime() {
-        return ctime;
-    }
-
-    public void setCtime(String ctime) {
-        this.ctime = ctime;
-    }
-
-    public String getUtime() {
-        return utime;
-    }
-
-    public void setUtime(String utime) {
-        this.utime = utime;
     }
 
     @Override

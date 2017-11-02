@@ -29,7 +29,8 @@ public class YtNovelCategory {
     private Integer parentId = 0;
 
     @NotBlank(message = "该字段不能为空")
-    @Column(length = 32)
+//    @Column(length = 32)
+    @Column(columnDefinition = "varchar(32) COMMENT '分类名称'")
     private String title = "";
 
     public YtNovelCategory() {
