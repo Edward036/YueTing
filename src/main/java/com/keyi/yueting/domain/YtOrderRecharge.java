@@ -25,14 +25,143 @@ public class YtOrderRecharge {
 
     @NotBlank(message = "这个字段必传")
     @Column(length = 5)
-    private Integer role_id;
+    private Integer orderNo;
 
     @Column(length = 32)
-    private String username;
+    private String userId;
 
     @NotNull(message = "")
     @Column(length = 32)
-    private String password;
+    private String channelId;
+
+
+    @NotNull(message = "")
+    @Column(length = 32)
+    private String channelName;
+
+
+    @NotNull(message = "")
+    @Column(length = 32)
+    private String price;
+
+    @NotNull(message = "")
+    @Column(length = 32)
+    private Integer ticket;
+
+    @NotNull(message = "")
+    @Column(length = 32)
+    private Integer ticketGive;
+
+    @NotNull(message = "")
+    @Column(length = 32)
+    private Integer payTime;
+
+
+    @Column(length = 32)
+    private Integer isPay;
+
+    @Column(length = 32)
+    private Integer payType;
+
+    @NotNull(message = "")
+    @Column(length = 32)
+    private Integer ctime;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(Integer orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getChannelId() {
+        return channelId;
+    }
+
+    public void setChannelId(String channelId) {
+        this.channelId = channelId;
+    }
+
+    public String getChannelName() {
+        return channelName;
+    }
+
+    public void setChannelName(String channelName) {
+        this.channelName = channelName;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public Integer getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Integer ticket) {
+        this.ticket = ticket;
+    }
+
+    public Integer getTicketGive() {
+        return ticketGive;
+    }
+
+    public void setTicketGive(Integer ticketGive) {
+        this.ticketGive = ticketGive;
+    }
+
+    public Integer getPayTime() {
+        return payTime;
+    }
+
+    public void setPayTime(Integer payTime) {
+        this.payTime = payTime;
+    }
+
+    public Integer getIsPay() {
+        return isPay;
+    }
+
+    public void setIsPay(Integer isPay) {
+        this.isPay = isPay;
+    }
+
+    public Integer getPayType() {
+        return payType;
+    }
+
+    public void setPayType(Integer payType) {
+        this.payType = payType;
+    }
+
+    public Integer getCtime() {
+        return ctime;
+    }
+
+    public void setCtime(Integer ctime) {
+        this.ctime = ctime;
+    }
 
     public YtOrderRecharge() {
     }
@@ -42,9 +171,9 @@ public class YtOrderRecharge {
         return getClass().getSimpleName() +
                 "{" +
                 "id=" + id +
-                ", role_id='" + role_id + '\'' +
-                ", username=" + username + '\'' +
-                ", password=" + password + '\'' +
+                ", isPay='" + isPay + '\'' +
+                ", payType=" + payType + '\'' +
+                ", ctime=" + ctime + '\'' +
                 '}';
     }
 }

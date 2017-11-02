@@ -1,7 +1,5 @@
 package com.keyi.yueting.domain;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,16 +21,72 @@ public class YtPosition {
 //    @Length()
     private Integer id;
 
-    @NotBlank(message = "这个字段必传")
-    @Column(length = 5)
-    private Integer role_id;
-
     @Column(length = 32)
-    private String username;
+    private String name;
 
     @NotNull(message = "")
     @Column(length = 32)
-    private String password;
+    private String listOrder;
+
+    @NotNull(message = "")
+    @Column(length = 32)
+    private String thumb;
+
+    @NotNull(message = "")
+    @Column(length = 32)
+    private String toUrl;
+
+    @NotNull(message = "")
+    @Column(length = 32)
+    private String ctime;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getListOrder() {
+        return listOrder;
+    }
+
+    public void setListOrder(String listOrder) {
+        this.listOrder = listOrder;
+    }
+
+    public String getThumb() {
+        return thumb;
+    }
+
+    public void setThumb(String thumb) {
+        this.thumb = thumb;
+    }
+
+    public String getToUrl() {
+        return toUrl;
+    }
+
+    public void setToUrl(String toUrl) {
+        this.toUrl = toUrl;
+    }
+
+    public String getCtime() {
+        return ctime;
+    }
+
+    public void setCtime(String ctime) {
+        this.ctime = ctime;
+    }
 
     public YtPosition() {
     }
@@ -42,9 +96,9 @@ public class YtPosition {
         return getClass().getSimpleName() +
                 "{" +
                 "id=" + id +
-                ", role_id='" + role_id + '\'' +
-                ", username=" + username + '\'' +
-                ", password=" + password + '\'' +
+                ", thumb='" + thumb + '\'' +
+                ", toUrl=" + toUrl + '\'' +
+                ", ctime=" + ctime + '\'' +
                 '}';
     }
 }
