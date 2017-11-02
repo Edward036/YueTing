@@ -88,6 +88,142 @@ public class YtNovel {
     public YtNovel() {
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getBid() {
+        return bid;
+    }
+
+    public void setBid(Integer bid) {
+        this.bid = bid;
+    }
+
+    public Integer getCatParentId() {
+        return catParentId;
+    }
+
+    public void setCatParentId(Integer catParentId) {
+        this.catParentId = catParentId;
+    }
+
+    public Integer getCatId() {
+        return catId;
+    }
+
+    public void setCatId(Integer catId) {
+        this.catId = catId;
+    }
+
+    public Integer getChaptTotal() {
+        return chaptTotal;
+    }
+
+    public void setChaptTotal(Integer chaptTotal) {
+        this.chaptTotal = chaptTotal;
+    }
+
+    public Integer getIsEnd() {
+        return isEnd;
+    }
+
+    public void setIsEnd(Integer isEnd) {
+        this.isEnd = isEnd;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Integer getClickNum() {
+        return clickNum;
+    }
+
+    public void setClickNum(Integer clickNum) {
+        this.clickNum = clickNum;
+    }
+
+    public Integer getClickNumBase() {
+        return ClickNumBase;
+    }
+
+    public void setClickNumBase(Integer clickNumBase) {
+        ClickNumBase = clickNumBase;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getCover() {
+        return OSS + cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public String getCatName() {
+        return catName;
+    }
+
+    public void setCatName(String catName) {
+        this.catName = catName;
+    }
+
+    public String getWriter() {
+        return writer;
+    }
+
+    public void setWriter(String writer) {
+        this.writer = writer;
+    }
+
+    public String getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(String player) {
+        this.player = player;
+    }
+
+    public String getBrief() {
+        return brief;
+    }
+
+    public void setBrief(String brief) {
+        this.brief = brief;
+    }
+
+    public Long getCtime() {
+        return ctime;
+    }
+
+    public void setCtime(Long ctime) {
+        this.ctime = ctime;
+    }
+
+    public Long getUtime() {
+        return utime;
+    }
+
+    public void setUtime(Long utime) {
+        this.utime = utime;
+    }
+
     @Override
     public String toString() {
         return getClass().getSimpleName() +

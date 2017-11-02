@@ -25,7 +25,7 @@ public class YtNovelCategoryController {
      * @return
      */
     @GetMapping(value = "/category")
-    public Result<YtNovelCategory> girlList() {
+    public Result<YtNovelCategory> getList() {
         return ResultUtil.success(categoryRepository.findAll());
     }
 

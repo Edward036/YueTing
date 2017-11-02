@@ -23,10 +23,7 @@ public class YtNovelController {
      * @return
      */
     @RequestMapping("/novel")
-    public Result<YtNovel> girlList() {
+    public Result<YtNovel> getList() {
         return ResultUtil.success(novelRepository.findAll());
     }
-
-
-
 }
