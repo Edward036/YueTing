@@ -69,7 +69,6 @@ public class YtNovel {
     @Column(length = 32)
     private String status;
 
-
     @NotNull(message = "")
     @Column(length = 32)
     private String clickNum;
