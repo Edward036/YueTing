@@ -59,14 +59,6 @@ public class YtNovelCategory {
         this.title = title;
     }
 
-    public Integer getSort() {
-        return sort;
-    }
-
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
-
     @Override
     public String toString() {
         return getClass().getSimpleName() +
@@ -74,7 +66,6 @@ public class YtNovelCategory {
                 "id=" + id +
                 ", parentId='" + parentId + '\'' +
                 ", title=" + title + '\'' +
-                ", sort=" + sort + '\'' +
                 '}';
     }
 }
