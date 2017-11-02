@@ -25,14 +25,58 @@ public class YtRecordBuy {
 
     @NotBlank(message = "这个字段必传")
     @Column(length = 5)
-    private Integer role_id;
+    private Integer userId;
 
     @Column(length = 32)
-    private String username;
+    private Integer novelId;
 
     @NotNull(message = "")
-    @Column(length = 32)
-    private String password;
+    @Column(length = 1024)
+    private String chapJson;
+
+    @NotNull(message = "")
+    @Column(length = 1024)
+    private Integer uTime;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getNovelId() {
+        return novelId;
+    }
+
+    public void setNovelId(Integer novelId) {
+        this.novelId = novelId;
+    }
+
+    public String getChapJson() {
+        return chapJson;
+    }
+
+    public void setChapJson(String chapJson) {
+        this.chapJson = chapJson;
+    }
+
+    public Integer getuTime() {
+        return uTime;
+    }
+
+    public void setuTime(Integer uTime) {
+        this.uTime = uTime;
+    }
 
     public YtRecordBuy() {
     }
@@ -42,9 +86,9 @@ public class YtRecordBuy {
         return getClass().getSimpleName() +
                 "{" +
                 "id=" + id +
-                ", role_id='" + role_id + '\'' +
-                ", username=" + username + '\'' +
-                ", password=" + password + '\'' +
+                ", novelId='" + novelId + '\'' +
+                ", chapJson=" + chapJson + '\'' +
+                ", uTime=" + uTime + '\'' +
                 '}';
     }
 }

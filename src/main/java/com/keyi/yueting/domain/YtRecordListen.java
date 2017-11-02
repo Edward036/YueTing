@@ -24,15 +24,23 @@ public class YtRecordListen {
     private Integer id;
 
     @NotBlank(message = "这个字段必传")
-    @Column(length = 5)
-    private Integer role_id;
+    @Column(length = 16)
+    private Integer userId;
 
-    @Column(length = 32)
-    private String username;
+    @Column(length = 16)
+    private Integer novelId;
 
     @NotNull(message = "")
-    @Column(length = 32)
-    private String password;
+    @Column(length = 1024)
+    private String recent;
+
+    @NotNull(message = "")
+    @Column(length = 1024)
+    private String progress;
+
+    @NotNull(message = "")
+    @Column(length = 16)
+    private Integer utime;
 
     public YtRecordListen() {
     }
@@ -42,9 +50,9 @@ public class YtRecordListen {
         return getClass().getSimpleName() +
                 "{" +
                 "id=" + id +
-                ", role_id='" + role_id + '\'' +
-                ", username=" + username + '\'' +
-                ", password=" + password + '\'' +
+                ", recent='" + recent + '\'' +
+                ", progress=" + progress + '\'' +
+                ", utime=" + utime + '\'' +
                 '}';
     }
 }
