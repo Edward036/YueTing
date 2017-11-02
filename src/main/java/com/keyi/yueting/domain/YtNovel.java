@@ -13,6 +13,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class YtNovel {
 
+    private static final String OSS = "http://yue-ting.oss-cn-beijing.aliyuncs.com/";
+
     @Id
     @GeneratedValue
 //    @Min(value = 18, message = "")
