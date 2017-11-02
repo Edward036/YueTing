@@ -1,12 +1,9 @@
 package com.keyi.yueting.domain;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 /**
  * Created by 廖师兄
@@ -23,18 +20,37 @@ public class YtRole {
 //    @Length()
     private Integer id;
 
-    @NotBlank(message = "这个字段必传")
-    @Column(length = 5)
-    private Integer role_id;
+    @Column(length = 32, columnDefinition = "COMMENT '用户组名称'")
+    private String name;
 
-    @Column(length = 32)
-    private String username;
-
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String password;
+    @Column(length = 1024, columnDefinition = "COMMENT '权限控制'")
+    private String acl;
 
     public YtRole() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAcl() {
+        return acl;
+    }
+
+    public void setAcl(String acl) {
+        this.acl = acl;
     }
 
     @Override
@@ -42,9 +58,8 @@ public class YtRole {
         return getClass().getSimpleName() +
                 "{" +
                 "id=" + id +
-                ", role_id='" + role_id + '\'' +
-                ", username=" + username + '\'' +
-                ", password=" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", acl=" + acl + '\'' +
                 '}';
     }
 }
