@@ -18,12 +18,13 @@ public class YtRole {
 //    @NotNull
 //    @Max()
 //    @Length()
+    @Column(length = 16)
     private Integer id;
 
-    @Column(length = 32, columnDefinition = "COMMENT '用户组名称'")
+    @Column(length = 32, columnDefinition = "varchar(32) COMMENT '用户组名称'")
     private String name;
 
-    @Column(length = 1024, columnDefinition = "COMMENT '权限控制'")
+    @Column(length = 1024, columnDefinition = "varchar(1024) COMMENT '权限控制'")
     private String acl;
 
     public YtRole() {

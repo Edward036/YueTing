@@ -21,10 +21,11 @@ public class YtConfigTicket {
 //    @NotNull
 //    @Max()
 //    @Length()
+    @Column(length = 16)
     private Integer id;
 
     @NotBlank(message = "这个字段必传")
-    @Column(length = 5)
+    @Column(length = 16)
     private Integer amount;
 
     @Column(length = 32)

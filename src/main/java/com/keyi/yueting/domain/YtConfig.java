@@ -20,6 +20,7 @@ public class YtConfig {
 //    @NotNull
 //    @Max()
 //    @Length()
+    @Column(length = 16)
     private Integer id;
 
     @NotBlank(message = "这个字段必传")

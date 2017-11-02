@@ -54,7 +54,7 @@ public class YtNovel {
     private String player;
 
     @NotNull(message = "")
-    @Column(length = 32, columnDefinition = "COMMENT '简介'")
+    @Column(length = 32, columnDefinition = "varchar(32) COMMENT '简介'")
     private String brief;
 
     @NotNull(message = "")
