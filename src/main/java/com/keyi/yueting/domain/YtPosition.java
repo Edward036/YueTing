@@ -39,7 +39,8 @@ public class YtPosition {
 
     @Override
     public String toString() {
-        return "Girl{" +
+        return getClass().getSimpleName() +
+                "{" +
                 "id=" + id +
                 ", role_id='" + role_id + '\'' +
                 ", username=" + username + '\'' +

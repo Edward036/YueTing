@@ -68,7 +68,8 @@ public class Girl {
 
     @Override
     public String toString() {
-        return "Girl{" +
+        return getClass().getSimpleName() +
+                "{" +
                 "id=" + id +
                 ", cupSize='" + cupSize + '\'' +
                 ", age=" + age +

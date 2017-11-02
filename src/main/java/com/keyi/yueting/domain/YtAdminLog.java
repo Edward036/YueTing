@@ -37,7 +37,8 @@ public class YtAdminLog {
 
     @Override
     public String toString() {
-        return "Girl{" +
+        return getClass().getSimpleName() +
+                "{" +
                 "id=" + id +
                 ", admin_id='" + admin_id + '\'' +
                 ", admin_name=" + admin_name + '\'' +
