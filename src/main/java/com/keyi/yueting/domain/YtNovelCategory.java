@@ -29,13 +29,8 @@ public class YtNovelCategory {
     private Integer parentId = 0;
 
     @NotBlank(message = "该字段不能为空")
-    @Column(columnDefinition = "int(16) COMMENT '排序'")
-    private Integer sort = 0;
-
-    @NotBlank(message = "该字段不能为空")
     @Column(length = 32)
     private String title = "";
-
 
     public YtNovelCategory() {
     }
