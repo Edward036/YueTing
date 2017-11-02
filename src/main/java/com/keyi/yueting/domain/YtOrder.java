@@ -43,16 +43,13 @@ public class YtOrder {
     @Column(length = 32)
     private String novelId;
 
-
     @NotNull(message = "")
     @Column(length = 32)
     private String novelTitle;
 
-
     @NotNull(message = "")
     @Column(length = 32)
     private String chapts;
-
 
     @NotNull(message = "")
     @Column(length = 32)
