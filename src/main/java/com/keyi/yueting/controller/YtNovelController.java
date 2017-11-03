@@ -31,7 +31,7 @@ public class YtNovelController {
         return ResultUtil.success(repository.findAll());
     }
 
-    @PostMapping(value = "/comment")
+    @PostMapping(value = "/novel")
     public Result<YtNovel> add(@Valid YtNovel ytNovel,
                                BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

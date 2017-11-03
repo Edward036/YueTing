@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.24 (32 bit)
 MySQL - 5.6.16-log : Database - xmt_yueting
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 

@@ -1,18 +1,19 @@
 package com.keyi.yueting.domain;
 
+import org.hibernate.annotations.Table;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 /**
  * Created by 廖师兄
  * 2016-11-03 23:07
  */
 @Entity
+@Table(appliesTo = "yt_novel_chapt", comment = "小说章节表")
 public class YtNovelChapt {
 
     @Id
@@ -24,47 +25,38 @@ public class YtNovelChapt {
     private Integer id;
 
     @NotBlank(message = "这个字段必传")
-    @Column(length = 5)
+    @Column(columnDefinition = "int(16) COMMENT '类型：1音频 2文本'")
     private Integer type;
 
-    @Column(length = 32)
-    private String novelId;
+    @Column(columnDefinition = "int(16) COMMENT '小说ID'")
+    private Integer novelId;
 
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String chapt;
+    @Column(columnDefinition = "int(16) COMMENT '章节号'")
+    private Integer chapt;
 
-    @NotNull(message = "")
-    @Column(length = 32)
+    @Column(columnDefinition = "varchar(32) COMMENT '章节标题'")
     private String title;
 
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String seconds;
+    @Column(columnDefinition = "int(32) COMMENT '本章节总秒数'")
+    private Integer seconds;
 
-    @NotNull(message = "")
-    @Column(length = 32)
+    @Column(columnDefinition = "varchar(32) COMMENT '音频URL'")
     private String fileUrl;
 
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String status;
+    @Column(columnDefinition = "int(16) COMMENT '状态：1在线 0下线'")
+    private Integer status;
 
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String vip;
+    @Column(columnDefinition = "int(16) COMMENT '1收费 0免费'")
+    private Integer vip;
 
-    @NotNull(message = "")
-    @Column(length = 32)
+    @Column(columnDefinition = "varchar(64) COMMENT '原始文件作品名称'")
     private String originNovelTitle;
 
-    @NotNull(message = "")
-    @Column(length = 32)
+    @Column(columnDefinition = "varchar(64) COMMENT '原始文件章节名称'")
     private String originChaptTitle;
 
-    @NotNull(message = "")
-    @Column(length = 32)
-    private String ctime;
+    @Column(columnDefinition = "int(16)")
+    private Integer ctime;
 
     public YtNovelChapt() {
     }
@@ -85,19 +77,19 @@ public class YtNovelChapt {
         this.type = type;
     }
 
-    public String getNovelId() {
+    public Integer getNovelId() {
         return novelId;
     }
 
-    public void setNovelId(String novelId) {
+    public void setNovelId(Integer novelId) {
         this.novelId = novelId;
     }
 
-    public String getChapt() {
+    public Integer getChapt() {
         return chapt;
     }
 
-    public void setChapt(String chapt) {
+    public void setChapt(Integer chapt) {
         this.chapt = chapt;
     }
 
@@ -109,11 +101,11 @@ public class YtNovelChapt {
         this.title = title;
     }
 
-    public String getSeconds() {
+    public Integer getSeconds() {
         return seconds;
     }
 
-    public void setSeconds(String seconds) {
+    public void setSeconds(Integer seconds) {
         this.seconds = seconds;
     }
 
@@ -125,19 +117,19 @@ public class YtNovelChapt {
         this.fileUrl = fileUrl;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
-    public String getVip() {
+    public Integer getVip() {
         return vip;
     }
 
-    public void setVip(String vip) {
+    public void setVip(Integer vip) {
         this.vip = vip;
     }
 
@@ -157,11 +149,11 @@ public class YtNovelChapt {
         this.originChaptTitle = originChaptTitle;
     }
 
-    public String getCtime() {
+    public Integer getCtime() {
         return ctime;
     }
 
-    public void setCtime(String ctime) {
+    public void setCtime(Integer ctime) {
         this.ctime = ctime;
     }
 
