@@ -1,13 +1,15 @@
 package com.keyi.yueting.controller;
 
+import com.keyi.yueting.domain.Girl;
 import com.keyi.yueting.domain.Result;
 import com.keyi.yueting.domain.YtBanner;
 import com.keyi.yueting.repository.BannerRepository;
 import com.keyi.yueting.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * Created by 廖师兄
@@ -27,4 +29,25 @@ public class YtBannerController {
     public Result<YtBanner> getList() {
         return ResultUtil.success(bannerRepository.findAll());
     }
+
+    /**
+     * 添加一个banner
+     * @return
+     */
+    @PostMapping(value = "/banner")
+    public Result<Girl> girlAdd(@Valid YtBanner ytBanner, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
+        }
+        ytBanner.setImage(ytBanner.getImage());
+        ytBanner.setText(ytBanner.getText());
+        return ResultUtil.success(bannerRepository.save(ytBanner));
+    }
+
+    //删除
+    @DeleteMapping(value = "/banner/{id}")
+    public void girlDelete(@PathVariable("id") Integer id) {
+        bannerRepository.delete(id);
+    }
+
 }
