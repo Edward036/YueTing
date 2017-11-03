@@ -42,6 +42,32 @@ public class YtCommentController {
         repository.delete(id);
     }
 
+    @PostMapping(value = "/comment/like/{novelId}")
+    public Result<YtComment> like(@PathVariable("id") Integer novelId,
+                                  @Valid YtComment ytComment,
+                                  BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
+        }
+        ytComment.setNovelId(novelId);
+        ytComment.setLikeNum(ytComment.getLikeNum() + 1);
+        return ResultUtil.success(repository.save(ytComment));
+    }
+
+    @PostMapping(value = "/comment/unlike/{novelId}")
+    public Result<YtComment> unlike(@PathVariable("id") Integer novelId,
+                                    @Valid YtComment ytComment,
+                                    BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
+        }
+        ytComment.setNovelId(novelId);
+        if (ytComment.getLikeNum() >= 1) {
+            ytComment.setLikeNum(ytComment.getLikeNum() - 1);
+        }
+        return ResultUtil.success(repository.save(ytComment));
+    }
+
     //通过id查询专辑评论列表
     @GetMapping(value = "/comment/{id}")
     public Result<YtComment> girlListByAge(@PathVariable("id") Integer id) {
