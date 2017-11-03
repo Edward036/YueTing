@@ -18,16 +18,15 @@ public class YtBanner {
 //    @NotNull
 //    @Max()
 //    @Length()
-    @Column(length = 16)
     private Integer id;
 
-    @Column(length = 1024, columnDefinition = "varchar(1024) COMMENT '文案'")
+    @Column(columnDefinition = "varchar(1024) COMMENT '文案'")
     private String text;
 
-    @Column(length = 64, columnDefinition = "varchar(64) COMMENT '跳转'")
+    @Column(columnDefinition = "varchar(64) COMMENT '跳转'")
     private String toUrl;
 
-    @Column(length = 64, columnDefinition = "varchar(64) COMMENT '图片'")
+    @Column(columnDefinition = "varchar(64) COMMENT '图片'")
     private String image;
 
     public YtBanner() {
