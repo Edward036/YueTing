@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 /**
  * Created by 廖师兄
@@ -28,6 +29,10 @@ public class YtComment {
 
     @Column(columnDefinition = "varchar(16) COMMENT '评论人'")
     private String name;
+
+    @Min(value = 0, message = "")
+    @Column(columnDefinition = "varchar(16) COMMENT '点赞数量'")
+    private Integer like;
 
     @Column(columnDefinition = "varchar(16) COMMENT '评论内容'")
     private String comment;
@@ -59,6 +64,14 @@ public class YtComment {
         this.name = name;
     }
 
+    public Integer getLike() {
+        return like;
+    }
+
+    public void setLike(Integer like) {
+        this.like = like;
+    }
+
     public String getComment() {
         return comment;
     }
@@ -66,6 +79,7 @@ public class YtComment {
     public void setComment(String comment) {
         this.comment = comment;
     }
+
 
     @Override
     public String toString() {
