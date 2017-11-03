@@ -19,22 +19,14 @@ public class YtCommentController {
     @Autowired
     private CommentRepository repository;
 
-    /**
-     * 查询所有分类列表
-     *
-     * @return
-     */
     @GetMapping(value = "/comment")
     public Result<YtComment> getList() {
         return ResultUtil.success(repository.findAll());
     }
 
-    /**
-     * 添加一个banner
-     * @return
-     */
     @PostMapping(value = "/comment")
-    public Result<YtComment> add(@Valid YtComment ytComment, BindingResult bindingResult) {
+    public Result<YtComment> add(@Valid YtComment ytComment,
+                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
         }
@@ -45,9 +37,15 @@ public class YtCommentController {
         return ResultUtil.success(repository.save(ytComment));
     }
 
-    //删除
     @DeleteMapping(value = "/comment/{id}")
     public void delete(@PathVariable("id") Integer id) {
         repository.delete(id);
     }
+
+    //通过id查询专辑评论列表
+    @GetMapping(value = "/comment/{id}")
+    public Result<YtComment> girlListByAge(@PathVariable("id") Integer id) {
+        return ResultUtil.success(repository.findByNovelId(id));
+    }
+
 }

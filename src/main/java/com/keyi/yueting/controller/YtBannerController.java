@@ -20,20 +20,11 @@ public class YtBannerController {
     @Autowired
     private BannerRepository repository;
 
-    /**
-     * 查询所有分类列表
-     *
-     * @return
-     */
     @GetMapping(value = "/banner")
     public Result<YtBanner> getList() {
         return ResultUtil.success(repository.findAll());
     }
 
-    /**
-     * 添加一个banner
-     * @return
-     */
     @PostMapping(value = "/banner")
     public Result<Girl> add(@Valid YtBanner ytBanner, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -45,7 +36,6 @@ public class YtBannerController {
         return ResultUtil.success(repository.save(ytBanner));
     }
 
-    //删除
     @DeleteMapping(value = "/banner/{id}")
     public void delete(@PathVariable("id") Integer id) {
         repository.delete(id);
