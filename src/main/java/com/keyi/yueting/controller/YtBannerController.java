@@ -41,6 +41,7 @@ public class YtBannerController {
         }
         ytBanner.setImage(ytBanner.getImage());
         ytBanner.setText(ytBanner.getText());
+        ytBanner.setToUrl(ytBanner.getToUrl());
         return ResultUtil.success(bannerRepository.save(ytBanner));
     }
 
@@ -49,5 +50,4 @@ public class YtBannerController {
     public void girlDelete(@PathVariable("id") Integer id) {
         bannerRepository.delete(id);
     }
-
 }
