@@ -19,23 +19,25 @@ public class YtShelfController {
     @Autowired
     private ShelfRepository repository;
 
-    @GetMapping(value = "/shelf/{id}")
-    public Result<YtShelf> getList() {
-        return ResultUtil.success(repository.findAll());
+    @GetMapping(value = "/shelf/{userId}")
+    public Result<YtShelf> getList(@PathVariable("userId") Integer userId) {
+        return ResultUtil.success(repository.findByUserId(userId));
     }
 
-    @PostMapping(value = "/shelf")
-    public Result<YtShelf> add(@Valid YtShelf ytShelf, BindingResult bindingResult) {
+    @PostMapping(value = "/shelf/{userId}")
+    public Result<YtShelf> add(@PathVariable("userId") Integer userId,
+                               @Valid YtShelf ytShelf,
+                               BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
         }
         ytShelf.setNovelId(ytShelf.getNovelId());
-        ytShelf.setUserId(ytShelf.getUserId());
+        ytShelf.setUserId(userId);
         return ResultUtil.success(repository.save(ytShelf));
     }
 
-    @DeleteMapping(value = "/shelf/{id}")
-    public void delete(@PathVariable("id") Integer id) {
-        repository.delete(id);
+    @DeleteMapping(value = "/shelf/{userId}")
+    public void delete(@PathVariable("userId") Integer userId) {
+        repository.delete(userId);
     }
 }
