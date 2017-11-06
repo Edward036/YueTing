@@ -24,7 +24,7 @@ public class YtShelfController {
         return ResultUtil.success(repository.findAll());
     }
 
-    @PostMapping(value = "/banner")
+    @PostMapping(value = "/shelf")
     public Result<YtShelf> add(@Valid YtShelf ytShelf, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
@@ -34,7 +34,7 @@ public class YtShelfController {
         return ResultUtil.success(repository.save(ytShelf));
     }
 
-    @DeleteMapping(value = "/banner/{id}")
+    @DeleteMapping(value = "/shelf/{id}")
     public void delete(@PathVariable("id") Integer id) {
         repository.delete(id);
     }
