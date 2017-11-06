@@ -21,8 +21,8 @@ public class YtRecommend {
 //    @Length()
     private Integer id;
 
-    @Column(columnDefinition = "int(16) COMMENT '分类id'")
-    private Integer categoryId;
+    @Column(columnDefinition = "varchar(64) COMMENT '标题'")
+    private String title;
 
     @Column(columnDefinition = "int(16) COMMENT '专辑id'")
     private Integer novelId;
@@ -41,12 +41,12 @@ public class YtRecommend {
         this.id = id;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Integer getNovelId() {
