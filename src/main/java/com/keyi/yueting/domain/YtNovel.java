@@ -1,9 +1,6 @@
 package com.keyi.yueting.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -21,6 +18,7 @@ public class YtNovel {
 //    @NotNull
 //    @Max()
 //    @Length()
+    @ManyToOne
     private Integer id;
 
     @Column(columnDefinition = "int(16) COMMENT '长兄ID，0：没有兄弟，大于0：哥哥ID，即priorId'")
@@ -84,6 +82,10 @@ public class YtNovel {
     @NotNull(message = "")
     @Column(columnDefinition = "int(16) COMMENT 'updateTime'")
     private Long utime;
+
+//    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH})
+//    @JoinColumn(name="novel_id")
+//    private YtRecommend ytRecommend;
 
     public YtNovel() {
     }

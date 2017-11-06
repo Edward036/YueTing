@@ -1,9 +1,6 @@
 package com.keyi.yueting.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by 廖师兄
@@ -29,6 +26,9 @@ public class YtRecommend {
 
     @Column(columnDefinition = "int(16) COMMENT '首页排序'")
     private Integer sort;
+
+//    @OneToMany(mappedBy = "recommend", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private YtNovel ytNovel;
 
     public YtRecommend() {
     }
