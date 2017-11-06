@@ -70,7 +70,6 @@ public class GirlController {
         girl.setId(id);
         girl.setCupSize(cupSize);
         girl.setAge(age);
-
         return girlRepository.save(girl);
     }
 

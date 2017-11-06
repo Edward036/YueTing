@@ -1,8 +1,8 @@
 package com.keyi.yueting.controller;
 
 import com.keyi.yueting.domain.Result;
-import com.keyi.yueting.domain.YtBanner;
-import com.keyi.yueting.repository.BannerRepository;
+import com.keyi.yueting.domain.YtShelf;
+import com.keyi.yueting.repository.ShelfRepository;
 import com.keyi.yueting.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -15,24 +15,23 @@ import javax.validation.Valid;
  * 2016-10-30 23:36
  */
 @RestController
-public class YtBannerController {
+public class YtShelfController {
     @Autowired
-    private BannerRepository repository;
+    private ShelfRepository repository;
 
-    @GetMapping(value = "/banner")
-    public Result<YtBanner> getList() {
+    @GetMapping(value = "/shelf/{id}")
+    public Result<YtShelf> getList() {
         return ResultUtil.success(repository.findAll());
     }
 
     @PostMapping(value = "/banner")
-    public Result<YtBanner> add(@Valid YtBanner ytBanner, BindingResult bindingResult) {
+    public Result<YtShelf> add(@Valid YtShelf ytShelf, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
         }
-        ytBanner.setImage(ytBanner.getImage());
-        ytBanner.setText(ytBanner.getText());
-        ytBanner.setToUrl(ytBanner.getToUrl());
-        return ResultUtil.success(repository.save(ytBanner));
+        ytShelf.setNovelId(ytShelf.getNovelId());
+        ytShelf.setUserId(ytShelf.getUserId());
+        return ResultUtil.success(repository.save(ytShelf));
     }
 
     @DeleteMapping(value = "/banner/{id}")
