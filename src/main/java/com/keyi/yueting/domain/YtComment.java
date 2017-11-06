@@ -23,7 +23,7 @@ public class YtComment {
 //    @Length()
     private Integer id;
 
-    @Column(columnDefinition = "int(11) COMMENT '专辑id'")
+    @Column(columnDefinition = "int(16) COMMENT '专辑id'")
     private Integer novelId;
 
     @Column(columnDefinition = "varchar(16) COMMENT '评论人'")
