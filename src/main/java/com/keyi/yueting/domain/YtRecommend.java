@@ -1,7 +1,5 @@
 package com.keyi.yueting.domain;
 
-import org.hibernate.annotations.Table;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +10,7 @@ import javax.persistence.Id;
  * 2016-11-03 23:07
  */
 @Entity
-@Table(appliesTo = "yt_recomment", comment = "首页推荐列表")
+//@Table(appliesTo = "yt_recomment", comment = "首页推荐列表")
 public class YtRecommend {
 
     @Id
