@@ -18,7 +18,6 @@ public class YtNovel {
 //    @NotNull
 //    @Max()
 //    @Length()
-    @ManyToOne
     private Integer id;
 
     @Column(columnDefinition = "int(16) COMMENT '长兄ID，0：没有兄弟，大于0：哥哥ID，即priorId'")

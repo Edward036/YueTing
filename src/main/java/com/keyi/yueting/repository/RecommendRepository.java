@@ -9,6 +9,8 @@ import java.util.List;
 public interface RecommendRepository extends JpaRepository<YtRecommend, Integer> {
 //    public List<YtShelf> findByUserId(Integer integer);
 
-    @Query(value = "select r.sort, n.title, r.title from yt_recommend r LEFT JOIN yt_novel n on his.user_id=u.id", nativeQuery = true)
-    List<YtRecommend> findWithNovel();
+    @Query(value = "select r.sort, n.title, r.title from yt_recommend r LEFT JOIN yt_novel n on r.novel_id=n.id", nativeQuery = true)
+    public List<YtRecommend> findWithNovel();
+
+    public List<YtRecommend> findBySort(Integer integer);
 }

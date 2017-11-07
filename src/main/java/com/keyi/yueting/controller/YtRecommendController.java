@@ -19,10 +19,16 @@ public class YtRecommendController {
     @Autowired
     private RecommendRepository repository;
 
-    @GetMapping(value = "/recommend")
+       @GetMapping(value = "/recommend")
     public Result<YtRecommend> getList() {
         return ResultUtil.success(repository.findAll());
     }
+
+    @GetMapping(value = "/recommend/{rank}")
+    public Result<YtRecommend> getListByRank(@PathVariable("rank") Integer integer) {
+        return ResultUtil.success(repository.findBySort(integer));
+    }
+
 
     @PostMapping(value = "/recommend")
     public Result<YtRecommend> add(@Valid YtRecommend ytRecommend,
