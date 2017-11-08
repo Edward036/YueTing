@@ -28,7 +28,4 @@ public class YtNovelCategoryController {
     public Result<YtNovelCategory> getList() {
         return ResultUtil.success(categoryRepository.findAll());
     }
-
-
-
 }
