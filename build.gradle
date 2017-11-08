@@ -32,27 +32,34 @@ repositories {
 
 
 dependencies {
-//	compile('org.springframework.boot:spring-boot-starter-parent:1.4.1.RELEASE')
     //
-    compile('org.springframework.boot:spring-boot-starter-web')
-    //
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    //
-    compile('mysql:mysql-connector-java')
-    //
+    compile "org.springframework.boot:spring-boot-starter"
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-amqp'
     compile('org.springframework.boot:spring-boot-starter-aop')
+    compile 'org.springframework.boot:spring-boot-starter-integration'
+    compile 'org.springframework.integration:spring-integration-file:4.3.5.RELEASE'
+    compile 'org.springframework.boot:spring-boot-devtools'
     //
-//	compile('com.aliyun:aliyun-java-sdk-rds:2.1.0')
+    compile 'mysql:mysql-connector-java'
     //
+    //	compile('com.aliyun:aliyun-java-sdk-rds:2.1.0')
+
+    compile 'com.google.code.gson:gson:2.8.0'
+    //
+//    compile "io.springfox:springfox-swagger-ui:2.2.2"
+//    compile "io.springfox:springfox-swagger2:2.2.2"
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-task buildDocker(type: Docker, dependsOn: build) {
-    dockerfile = file('Dockerfile')
-    doFirst {
-        copy {
-            from jar
-            into "${stageDir}/target"
-        }
-    }
-}
+//task buildDocker(type: Docker, dependsOn: build) {
+//    dockerfile = file('Dockerfile')
+//    doFirst {
+//        copy {
+//            from jar
+//            into "${stageDir}/target"
+//        }
+//    }
+//}
