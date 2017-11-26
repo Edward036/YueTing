@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by 廖师兄
@@ -19,9 +20,10 @@ public class YtRecommendController {
     @Autowired
     private RecommendRepository repository;
 
-       @GetMapping(value = "/recommend")
-    public Result<YtRecommend> getList() {
-        return ResultUtil.success(repository.findAll());
+    @GetMapping(value = "/recommend")
+    public Result getList() {
+        List list = repository.findWithNovel();
+        return ResultUtil.success(list);
     }
 
     @GetMapping(value = "/recommend/{rank}")
@@ -29,10 +31,9 @@ public class YtRecommendController {
         return ResultUtil.success(repository.findBySort(integer));
     }
 
-
     @PostMapping(value = "/recommend")
     public Result<YtRecommend> add(@Valid YtRecommend ytRecommend,
-                               BindingResult bindingResult) {
+                                   BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
         }
