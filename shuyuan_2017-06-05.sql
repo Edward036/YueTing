@@ -22,11 +22,11 @@ USE `xmt_yueting`;
 DROP TABLE IF EXISTS `yt_admin`;
 
 CREATE TABLE `yt_admin` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `role_id` int(5) unsigned DEFAULT '0',
   `username` char(20) DEFAULT '',
   `password` char(32) DEFAULT '',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`sort`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `yt_admin_log` */
@@ -34,7 +34,7 @@ CREATE TABLE `yt_admin` (
 DROP TABLE IF EXISTS `yt_admin_log`;
 
 CREATE TABLE `yt_admin_log` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `sort` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '编号',
   `admin_id` int(11) NOT NULL DEFAULT '0' COMMENT '操作人编号',
   `admin_name` varchar(200) NOT NULL DEFAULT '' COMMENT '操作人名称',
   `addtime` int(11) NOT NULL DEFAULT '0' COMMENT '操作时间',
@@ -48,7 +48,7 @@ CREATE TABLE `yt_admin_log` (
   `request` text COMMENT '请求',
   `responce` text COMMENT '响应',
   `describe` varchar(200) NOT NULL DEFAULT '' COMMENT '描述',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`sort`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `yt_channel` */
@@ -56,10 +56,10 @@ CREATE TABLE `yt_admin_log` (
 DROP TABLE IF EXISTS `yt_channel`;
 
 CREATE TABLE `yt_channel` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `channel_name` varchar(20) DEFAULT '',
   `ctime` int(10) DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`sort`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='渠道表';
 
 /*Table structure for table `yt_config` */
@@ -67,10 +67,10 @@ CREATE TABLE `yt_channel` (
 DROP TABLE IF EXISTS `yt_config`;
 
 CREATE TABLE `yt_config` (
-  `id` varchar(64) NOT NULL,
+  `sort` varchar(64) NOT NULL,
   `value` text NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
+  PRIMARY KEY (`sort`),
+  UNIQUE KEY `sort` (`sort`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `yt_config_ticket` */
@@ -78,13 +78,13 @@ CREATE TABLE `yt_config` (
 DROP TABLE IF EXISTS `yt_config_ticket`;
 
 CREATE TABLE `yt_config_ticket` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `amount` decimal(10,2) DEFAULT '0.00' COMMENT '金额，单位：元',
   `ticket` int(10) DEFAULT '0' COMMENT '充值阅听卷',
   `ticket_give` int(10) DEFAULT '0' COMMENT '赠送的阅听卷',
   `status` int(1) DEFAULT '1' COMMENT '状态：1正常 0下线',
   `ctime` int(10) DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`sort`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `yt_novel` */
@@ -92,7 +92,7 @@ CREATE TABLE `yt_config_ticket` (
 DROP TABLE IF EXISTS `yt_novel`;
 
 CREATE TABLE `yt_novel` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `bid` int(10) DEFAULT '0' COMMENT '长兄ID，0：没有兄弟，大于0：哥哥ID，即priorId',
   `title` varchar(64) DEFAULT '' COMMENT '书名',
   `cover` varchar(200) DEFAULT '' COMMENT '封面URL',
@@ -109,7 +109,7 @@ CREATE TABLE `yt_novel` (
   `click_num_base` int(10) DEFAULT '0' COMMENT '基础播放次数',
   `ctime` int(10) DEFAULT '0',
   `utime` int(10) DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`sort`)
 ) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=utf8 COMMENT='小说书名表';
 
 /*Table structure for table `yt_novel_category` */
@@ -117,11 +117,11 @@ CREATE TABLE `yt_novel` (
 DROP TABLE IF EXISTS `yt_novel_category`;
 
 CREATE TABLE `yt_novel_category` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) DEFAULT '0' COMMENT '父分类ID，顶级为0',
   `title` varchar(20) DEFAULT '' COMMENT '分类名称',
   `sort` int(10) DEFAULT '0' COMMENT '排序',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`sort`),
   UNIQUE KEY `title` (`title`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='小说分类表';
 
@@ -130,7 +130,7 @@ CREATE TABLE `yt_novel_category` (
 DROP TABLE IF EXISTS `yt_novel_chapt`;
 
 CREATE TABLE `yt_novel_chapt` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type` int(1) DEFAULT '1' COMMENT '类型：1音频 2文本',
   `novel_id` int(11) DEFAULT '0' COMMENT '小说ID',
   `chapt` int(11) DEFAULT '0' COMMENT '章节号',
@@ -142,7 +142,7 @@ CREATE TABLE `yt_novel_chapt` (
   `ctime` int(10) DEFAULT '0',
   `origin_novel_title` varchar(64) DEFAULT '' COMMENT '原始文件作品名称',
   `origin_chapt_title` varchar(64) DEFAULT '' COMMENT '原始文件章节名称',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`sort`),
   UNIQUE KEY `novel_id,chapt` (`novel_id`,`chapt`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14366 DEFAULT CHARSET=utf8 COMMENT='小说章节表';
 
@@ -151,7 +151,7 @@ CREATE TABLE `yt_novel_chapt` (
 DROP TABLE IF EXISTS `yt_order`;
 
 CREATE TABLE `yt_order` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `order_no` varchar(64) NOT NULL COMMENT '订单号，前缀B',
   `user_id` int(10) NOT NULL,
   `nick_name` varchar(64) DEFAULT '' COMMENT '昵称',
@@ -165,7 +165,7 @@ CREATE TABLE `yt_order` (
   `is_pay` int(1) DEFAULT '0' COMMENT '是否支付：1已支付 0未支付',
   `pay_type` int(1) DEFAULT '1' COMMENT '支付方式：1余额支付',
   `pay_time` int(10) DEFAULT '0' COMMENT '订单支付时间',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`sort`),
   UNIQUE KEY `order_no` (`order_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=utf8 COMMENT='购买音频订单表';
 
@@ -174,7 +174,7 @@ CREATE TABLE `yt_order` (
 DROP TABLE IF EXISTS `yt_order_recharge`;
 
 CREATE TABLE `yt_order_recharge` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `order_no` varchar(32) DEFAULT '' COMMENT '订单号，前缀C',
   `user_id` int(10) DEFAULT '0',
   `channel_id` int(10) DEFAULT '0',
@@ -186,7 +186,7 @@ CREATE TABLE `yt_order_recharge` (
   `is_pay` int(1) DEFAULT '0',
   `pay_type` int(1) unsigned DEFAULT '1' COMMENT '1微信支付',
   `ctime` int(10) DEFAULT '0',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`sort`),
   UNIQUE KEY `orderno` (`order_no`) USING HASH
 ) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8 COMMENT='用户充值订单表';
 
@@ -195,13 +195,13 @@ CREATE TABLE `yt_order_recharge` (
 DROP TABLE IF EXISTS `yt_position`;
 
 CREATE TABLE `yt_position` (
-  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `name` char(30) NOT NULL DEFAULT '',
   `listorder` smallint(5) unsigned DEFAULT '0',
   `thumb` varchar(150) DEFAULT '',
   `to_url` char(50) NOT NULL DEFAULT '' COMMENT '绑定分类id',
   `ctime` int(10) DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`sort`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='推荐位';
 
 /*Table structure for table `yt_position_data` */
@@ -209,7 +209,7 @@ CREATE TABLE `yt_position` (
 DROP TABLE IF EXISTS `yt_position_data`;
 
 CREATE TABLE `yt_position_data` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `tid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '内容id(暂用小说ID)',
   `typeid` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '推荐位所属模型(小说1;暂缺)',
   `posid` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT '推荐位ID',
@@ -218,7 +218,7 @@ CREATE TABLE `yt_position_data` (
   `data` mediumtext COMMENT '推荐位详细数据json',
   `listorder` mediumint(8) DEFAULT '0',
   `ctime` int(11) unsigned DEFAULT '0',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`sort`),
   KEY `posid` (`posid`),
   KEY `listorder` (`listorder`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COMMENT='推荐位信息';
@@ -228,12 +228,12 @@ CREATE TABLE `yt_position_data` (
 DROP TABLE IF EXISTS `yt_record_buy`;
 
 CREATE TABLE `yt_record_buy` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `novel_id` int(10) DEFAULT '0',
   `user_id` int(10) DEFAULT '0',
   `chapt_json` text COMMENT '已购买章节号，如：[1,3,4]，代表已买第1第3第4章',
   `utime` int(10) DEFAULT '0' COMMENT '修改时间',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`sort`),
   UNIQUE KEY `novel_id,user_id` (`novel_id`,`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COMMENT='购买记录表';
 
@@ -242,13 +242,13 @@ CREATE TABLE `yt_record_buy` (
 DROP TABLE IF EXISTS `yt_record_listen`;
 
 CREATE TABLE `yt_record_listen` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) DEFAULT '0',
   `novel_id` int(10) DEFAULT '0',
   `recent` text COMMENT '最近收听，例：{"chapt":10,"seconds":25}',
   `progress` text COMMENT '收听进度，[{"chapt":1,"seconds":65},...]',
   `utime` int(10) DEFAULT '0' COMMENT '修改时间',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`sort`),
   UNIQUE KEY `user_id,novel_id` (`user_id`,`novel_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=346 DEFAULT CHARSET=utf8 COMMENT='小说章节收听进度表';
 
@@ -257,11 +257,11 @@ CREATE TABLE `yt_record_listen` (
 DROP TABLE IF EXISTS `yt_record_login_recent`;
 
 CREATE TABLE `yt_record_login_recent` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) DEFAULT '0',
   `channel_id` int(10) DEFAULT '0',
   `login_time` int(10) DEFAULT '0' COMMENT '最近登录时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`sort`)
 ) ENGINE=InnoDB AUTO_INCREMENT=418 DEFAULT CHARSET=utf8 COMMENT='渠道和用户最近登录表';
 
 /*Table structure for table `yt_record_money` */
@@ -269,7 +269,7 @@ CREATE TABLE `yt_record_login_recent` (
 DROP TABLE IF EXISTS `yt_record_money`;
 
 CREATE TABLE `yt_record_money` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) DEFAULT '0',
   `type` int(1) DEFAULT '1' COMMENT '类型：1充值 2消费',
   `ticket_change` int(10) DEFAULT '0' COMMENT '充值卷变动',
@@ -279,7 +279,7 @@ CREATE TABLE `yt_record_money` (
   `order_no` varchar(32) DEFAULT '' COMMENT '订单号',
   `pay_type` tinyint(2) DEFAULT '1' COMMENT '支付类型(1微信)',
   `ctime` int(10) DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`sort`)
 ) ENGINE=InnoDB AUTO_INCREMENT=281 DEFAULT CHARSET=utf8 COMMENT='充值消费金额变动表';
 
 /*Table structure for table `yt_role` */
@@ -287,10 +287,10 @@ CREATE TABLE `yt_record_money` (
 DROP TABLE IF EXISTS `yt_role`;
 
 CREATE TABLE `yt_role` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` char(30) NOT NULL DEFAULT '' COMMENT '用户组名称',
   `acl` varchar(2500) NOT NULL COMMENT '权限控制',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`sort`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='用户组';
 
 /*Table structure for table `yt_user` */
@@ -298,7 +298,7 @@ CREATE TABLE `yt_role` (
 DROP TABLE IF EXISTS `yt_user`;
 
 CREATE TABLE `yt_user` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sort` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_type` int(1) DEFAULT '1' COMMENT '用户类型：1公众号用户',
   `openid` varchar(64) DEFAULT '',
   `nickname` varchar(64) DEFAULT '',
@@ -315,7 +315,7 @@ CREATE TABLE `yt_user` (
   `ticket_give` int(10) DEFAULT '0' COMMENT '总剩余充值赠送阅听卷',
   `reg_ip` varchar(20) DEFAULT '' COMMENT '注册IP',
   `reg_time` int(10) DEFAULT '0' COMMENT '注册时间',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`sort`),
   UNIQUE KEY `openid` (`openid`,`unionid`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=417 DEFAULT CHARSET=utf8 COMMENT='用户表';
 

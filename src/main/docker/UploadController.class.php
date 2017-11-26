@@ -8,7 +8,7 @@ class UploadController extends Controller
     private $type = 0;
     private $result = array();
     //
-    private $id = null;
+    private $sort = null;
     private $host = null;
     private $base64_policy = null;
     private $signature = null;
@@ -27,7 +27,7 @@ class UploadController extends Controller
             exit;
         }
         //
-        $this->id = C("UPLOAD_SITEIMG_OSS")["driverConfig"]['AccessKeyId'];
+        $this->sort = C("UPLOAD_SITEIMG_OSS")["driverConfig"]['AccessKeyId'];
         $key = C("UPLOAD_SITEIMG_OSS")["driverConfig"]['AccessKeySecret'];
         $this->host = $host = C('UPLOAD_SITEIMG_OSS')['host'];
         $now = time();
@@ -68,7 +68,7 @@ class UploadController extends Controller
         $this->type = 0;
         $this->initUpload();
         $response = array();
-        $response['OSSAccessKeyId'] = $this->id;
+        $response['OSSAccessKeyId'] = $this->sort;
         $response['success_action_status'] = '200';
         $response['host'] = $this->host;
         $response['policy'] = $this->base64_policy;
@@ -76,7 +76,7 @@ class UploadController extends Controller
         $response['expire'] = $this->expire;
         $response['ossPath'] = $this->oss_path;
         $response['key'] = $this->oss_key;
-        //$id.
+        //$sort.
         $this-> result['data'] = $response;
         $this->ajaxReturn($this-> result, 'JSON');
     }
@@ -86,7 +86,7 @@ class UploadController extends Controller
         $this->type = 1;
         $this->initUpload();
         $response = array();
-        $response['OSSAccessKeyId'] = $this->id;
+        $response['OSSAccessKeyId'] = $this->sort;
         $response['success_action_status'] = '200';
         $response['host'] = $this->host;
         $response['policy'] = $this->base64_policy;
@@ -94,7 +94,7 @@ class UploadController extends Controller
         $response['expire'] = $this->expire;
         $response['ossPath'] = $this->oss_path;
         $response['key'] = $this->oss_key;
-        //$id.
+        //$sort.
         $this-> result['data'] = $response;
         $this->ajaxReturn($this-> result, 'JSON');
     }

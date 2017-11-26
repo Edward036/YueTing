@@ -1,5 +1,7 @@
 package com.keyi.yueting.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.keyi.yueting.domain.Result;
 import com.keyi.yueting.domain.YtRecommend;
 import com.keyi.yueting.repository.RecommendRepository;
@@ -19,16 +21,17 @@ import java.util.List;
 public class YtRecommendController {
     @Autowired
     private RecommendRepository repository;
-
+    private static final String OSS = "http://yue-ting.oss-cn-beijing.aliyuncs.com/";
     @GetMapping(value = "/recommend")
     public Result getList() {
         List list = repository.findWithNovel();
-        return ResultUtil.success(list);
+        JSONArray recommend = (JSONArray) JSON.toJSON(list);
+        return ResultUtil.success(recommend);
     }
 
     @GetMapping(value = "/recommend/{rank}")
-    public Result<YtRecommend> getListByRank(@PathVariable("rank") Integer integer) {
-        return ResultUtil.success(repository.findBySort(integer));
+    public Result getListByRank(@PathVariable("rank") Integer integer) {
+        return ResultUtil.success(repository.findByNovelSort(integer));
     }
 
     @PostMapping(value = "/recommend")
