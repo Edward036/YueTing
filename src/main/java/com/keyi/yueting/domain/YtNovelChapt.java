@@ -1,5 +1,6 @@
 package com.keyi.yueting.domain;
 
+import lombok.Data;
 import org.hibernate.annotations.Table;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -12,6 +13,7 @@ import javax.persistence.Id;
  * Created by 廖师兄
  * 2016-11-03 23:07
  */
+@Data
 @Entity
 @Table(appliesTo = "yt_novel_chapt", comment = "小说章节表")
 public class YtNovelChapt {
@@ -57,114 +59,4 @@ public class YtNovelChapt {
 
     @Column(columnDefinition = "int(16)")
     private Integer ctime;
-
-    public YtNovelChapt() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Integer getNovelId() {
-        return novelId;
-    }
-
-    public void setNovelId(Integer novelId) {
-        this.novelId = novelId;
-    }
-
-    public Integer getChapt() {
-        return chapt;
-    }
-
-    public void setChapt(Integer chapt) {
-        this.chapt = chapt;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Integer getSeconds() {
-        return seconds;
-    }
-
-    public void setSeconds(Integer seconds) {
-        this.seconds = seconds;
-    }
-
-    public String getFileUrl() {
-        return fileUrl;
-    }
-
-    public void setFileUrl(String fileUrl) {
-        this.fileUrl = fileUrl;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Integer getVip() {
-        return vip;
-    }
-
-    public void setVip(Integer vip) {
-        this.vip = vip;
-    }
-
-    public String getOriginNovelTitle() {
-        return originNovelTitle;
-    }
-
-    public void setOriginNovelTitle(String originNovelTitle) {
-        this.originNovelTitle = originNovelTitle;
-    }
-
-    public String getOriginChaptTitle() {
-        return originChaptTitle;
-    }
-
-    public void setOriginChaptTitle(String originChaptTitle) {
-        this.originChaptTitle = originChaptTitle;
-    }
-
-    public Integer getCtime() {
-        return ctime;
-    }
-
-    public void setCtime(Integer ctime) {
-        this.ctime = ctime;
-    }
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() +
-                "{" +
-                "id=" + id +
-                ", originNovelTitle='" + originNovelTitle + '\'' +
-                ", originChaptTitle=" + originChaptTitle + '\'' +
-                ", ctime=" + ctime + '\'' +
-                '}';
-    }
 }
