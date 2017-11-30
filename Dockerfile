@@ -4,7 +4,8 @@ RUN mkdir /var/app
 WORKDIR /var/app/
 ADD ./build/libs /var/app/libs
 EXPOSE 8083
-CMD ["java","-jar","libs/YueTing-0.0.1-SNAPSHOT.jar"]
+#CMD ["java","-jar","libs/YueTing-0.0.1-SNAPSHOT.jar"]
+CMD ["java","-cp","libs/YueTing-0.0.1-SNAPSHOT.jar", "com.keyi.yueting.YuetingApplication"]
 
 #FROM java:openjdk-8-alpine
 #VOLUME /tmp
