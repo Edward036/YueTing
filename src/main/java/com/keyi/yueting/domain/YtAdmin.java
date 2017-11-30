@@ -1,5 +1,6 @@
 package com.keyi.yueting.domain;
 
+import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotNull;
  * Created by 廖师兄
  * 2016-11-03 23:07
  */
+@Data
 @Entity
 public class YtAdmin {
 
@@ -33,50 +35,4 @@ public class YtAdmin {
     @NotNull(message = "")
     @Column(length = 32)
     private String password;
-
-    public YtAdmin() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getRole_id() {
-        return role_id;
-    }
-
-    public void setRole_id(Integer role_id) {
-        this.role_id = role_id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() +
-                "{" +
-                "id=" + id +
-                ", role_id='" + role_id + '\'' +
-                ", username=" + username + '\'' +
-                ", password=" + password + '\'' +
-                '}';
-    }
 }
