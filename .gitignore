@@ -28,3 +28,5 @@ YueTing.iml
 *.war
 build/resources/
 build/tmp/
+build/scriptsShadow/
+build/install

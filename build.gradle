@@ -15,23 +15,22 @@ mainClassName = "com.keyi.yueting.YuetingApplication"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-ext {
-    versions = [
-            SpringBoot : '1.5.8.RELEASE',
-            Kotlin : '1.1.4',
-            Shadow :  '2.0.1'
-    ]
-}
-
 buildscript {
+    ext {
+        versions = [
+                SpringBoot : '1.5.8.RELEASE',
+                Kotlin : '1.1.4',
+                Shadow :  '2.0.1'
+        ]
+    }
     repositories {
         jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:$versions.SpringBoot")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${versions.SpringBoot}")
         classpath('se.transmode.gradle:gradle-docker:1.2')
-        classpath "com.github.jengelman.gradle.plugins:shadow:$versions.Shadow"
+        classpath "com.github.jengelman.gradle.plugins:shadow:${versions.Shadow}"
     }
 }
 
@@ -72,7 +71,7 @@ shadowJar {
     baseName = 'app'
     classifier = 'shadow'
     manifest {
-        attributes 'Main-Verticle': mainClassName
+        attributes 'Main-Class': mainClassName
     }
 //    mergeServiceFiles {
 //        include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
