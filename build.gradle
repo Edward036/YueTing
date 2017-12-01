@@ -1,34 +1,39 @@
-buildscript {
-    ext {
-        springBootVersion = '1.5.8.RELEASE'
-        applicationName = 'YueTing'
-    }
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath('se.transmode.gradle:gradle-docker:1.2')
-    }
-
-}
-
 apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'docker'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'war'
+//apply plugin: 'war'
+apply plugin: "com.github.johnrengelman.shadow"
 
 applicationName = 'YueTing'
 group = 'com.keyi'
 version = '0.0.1-SNAPSHOT'
-mainClassName="com.keyi.yueting.YuetingApplication"
+mainClassName = "com.keyi.yueting.YuetingApplication"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+ext {
+    versions = [
+            SpringBoot : '1.5.8.RELEASE',
+            Kotlin : '1.1.4',
+            Shadow :  '2.0.1'
+    ]
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$versions.SpringBoot")
+        classpath('se.transmode.gradle:gradle-docker:1.2')
+        classpath "com.github.jengelman.gradle.plugins:shadow:$versions.Shadow"
+    }
+}
 
 repositories {
     jcenter()
@@ -63,12 +68,15 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-jar {
-    // incubating版本，以后版本可能会改API
+shadowJar {
+    baseName = 'app'
+    classifier = 'shadow'
     manifest {
-        attributes("Main-Class": "com.keyi.yueting.YuetingApplication",
-                "Implementation-Title": "Gradle")
+        attributes 'Main-Verticle': mainClassName
     }
+//    mergeServiceFiles {
+//        include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
+//    }
 }
 
 //task buildDocker(type: Docker, dependsOn: build) {
