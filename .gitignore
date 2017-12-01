@@ -25,7 +25,6 @@ dist/
 nbdist/
 .nb-gradle/
 YueTing.iml
-*.war
 build/resources/
 build/tmp/
 build/scriptsShadow/
