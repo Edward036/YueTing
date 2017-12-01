@@ -14,6 +14,7 @@ buildscript {
 
 }
 
+apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -24,6 +25,7 @@ apply plugin: 'war'
 applicationName = 'YueTing'
 group = 'com.keyi'
 version = '0.0.1-SNAPSHOT'
+mainClassName="com.keyi.yueting.YuetingApplication"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -59,6 +61,14 @@ dependencies {
 //    compile "io.springfox:springfox-swagger-ui:2.2.2"
 //    compile "io.springfox:springfox-swagger2:2.2.2"
     testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+jar {
+    // incubating版本，以后版本可能会改API
+    manifest {
+        attributes("Main-Class": "com.keyi.yueting.YuetingApplication",
+                "Implementation-Title": "Gradle")
+    }
 }
 
 //task buildDocker(type: Docker, dependsOn: build) {
