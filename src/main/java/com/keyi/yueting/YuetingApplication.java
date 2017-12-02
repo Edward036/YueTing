@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories
-@ComponentScan("com.keyi.yueting")
+@ComponentScan("com.keyi")
 public class YuetingApplication {
 
 	public static void main(String[] args) {
