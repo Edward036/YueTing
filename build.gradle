@@ -29,8 +29,8 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${versions.SpringBoot}")
-        classpath('se.transmode.gradle:gradle-docker:1.2')
         classpath "com.github.jengelman.gradle.plugins:shadow:${versions.Shadow}"
+        classpath('se.transmode.gradle:gradle-docker:1.2')
     }
 }
 
