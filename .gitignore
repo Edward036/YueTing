@@ -1,31 +1,3 @@
-.gradle
-/gradle/
-###!gradle/wrapper/gradle-wrapper.jar
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-
-### IntelliJ IDEA ###
-*.iws
-.idea/
-*.ipr
-*.class
-/out/
-out/
-
-### NetBeans ###
-nbproject/private/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
-YueTing.iml
-build/resources/
-build/tmp/
-build/scriptsShadow/
-build/install
+/.gradle/
+/.idea/
+/build/
