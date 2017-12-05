@@ -5,11 +5,11 @@ apply plugin: 'idea'
 apply plugin: 'docker'
 apply plugin: 'org.springframework.boot'
 //apply plugin: 'war'
-apply plugin: "com.github.johnrengelman.shadow"
+//apply plugin: "com.github.johnrengelman.shadow"
 
 applicationName = 'YueTing'
 group = 'com.keyi'
-version = '0.0.1-SNAPSHOT'
+version = '0.1.1'
 mainClassName = "com.keyi.yueting.YuetingApplication"
 
 sourceCompatibility = 1.8
@@ -18,9 +18,10 @@ targetCompatibility = 1.8
 buildscript {
     ext {
         versions = [
-                SpringBoot : '1.5.8.RELEASE',
-                Kotlin : '1.1.4',
-                Shadow :  '2.0.1'
+                SpringBoot    : '1.5.8.RELEASE',
+                Kotlin        : '1.1.4',
+                MavenJarPlugin: '2.5'
+//                Shadow :  '2.0.1'
         ]
     }
     repositories {
@@ -29,9 +30,13 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${versions.SpringBoot}")
-        classpath "com.github.jengelman.gradle.plugins:shadow:${versions.Shadow}"
+//        classpath "com.github.jengelman.gradle.plugins:shadow:${versions.Shadow}"
         classpath('se.transmode.gradle:gradle-docker:1.2')
     }
+}
+
+bootRepackage {
+    mainClass = mainClassName
 }
 
 repositories {
@@ -53,8 +58,12 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-devtools'
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-jetty'
+    //
+
     //compile 'org.springframework.boot:spring-boot-starter-tomcat:1.2.3.RELEASE'
     compile 'org.springframework.integration:spring-integration-file:4.3.5.RELEASE'
+    //
+
     //
     compile 'mysql:mysql-connector-java'
     //
@@ -69,16 +78,16 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-shadowJar {
-    baseName = 'app'
-    classifier = 'shadow'
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
-//    mergeServiceFiles {
-//        include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
+//shadowJar {
+//    baseName = 'app'
+//    classifier = 'shadow'
+//    manifest {
+//        attributes 'Main-Class': mainClassName
 //    }
-}
+////    mergeServiceFiles {
+////        include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
+////    }
+//}
 
 //task buildDocker(type: Docker, dependsOn: build) {
 //    dockerfile = file('Dockerfile')
