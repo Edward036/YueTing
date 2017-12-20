@@ -1,8 +1,11 @@
-package com.keyi.yueting.upload;
+package com.keyi.yueting.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.aliyun.oss.OSSClient;
+import com.keyi.yueting.upload.CommonRes;
+import com.keyi.yueting.upload.Constants;
+import com.keyi.yueting.upload.HttpUtils;
 import org.apache.http.HttpResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
