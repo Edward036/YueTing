@@ -65,6 +65,7 @@ public class UploadController {
 //        String bodys = "{\"type\":0,#0:通过url识别，参数image_url不为空；1:通过图片content识别，参数content不为空\"image_url_1\":\"http://a.com/a.jgp\",#输入图片1的URL\"content_1\":\"\",#输入图片1的content，base64方式编码\"image_url_2\":\"http://a.com/b.jgp\",#输入图片2的URL\"content_2\":\"\"#输入图片2的content，base64方式编码}";
         try {
             HttpResponse response = HttpUtils.doPost(host, path, method, headers, querys, bodys);
+            System.out.println("response");
             System.out.println(response.toString());
             //获取response的body
             //System.out.println(EntityUtils.toString(response.getEntity()));
