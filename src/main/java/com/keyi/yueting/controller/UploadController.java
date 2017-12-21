@@ -26,12 +26,15 @@ public class UploadController {
     private static String key = "a0_1_4.jpg";
     private static String imagePath = Constants.PATH_PC_IMAGE;
 
-    @GetMapping(value = "/string/upload")
-    public String fileUpload(String imagePath) {
+    @PostMapping(value = "/string/upload")
+    public String fileUpload(@RequestBody JSONObject object) {
+        String imagePath = object.getString("imagePath");
+        String[] path = imagePath.split("/");
+        String imageName = path[path.length - 1];
         OSSClient ossClient = new OSSClient(endpoint, accessKeyId, accessKeySecret);
         try {
             ossClient.putObject(bucketName,
-                    key,
+                    imageName,
                     new File(imagePath));
         } catch (Throwable e) {
             e.printStackTrace();

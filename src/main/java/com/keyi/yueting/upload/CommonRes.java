@@ -22,7 +22,6 @@ public class CommonRes {
         commonRes.setData(beans);
         commonRes.setStatus(Integer.valueOf(LoanDrainageExceptionEnum.SUCCESS.getStatus()));
         commonRes.setMsg(LoanDrainageExceptionEnum.SUCCESS.getMessage());
-
         return commonRes;
     }
 

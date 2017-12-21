@@ -74,8 +74,8 @@ dependencies {
     compile 'org.projectlombok:lombok:1.16.18'
     //
     compile "com.aliyun.oss:aliyun-sdk-oss:2.8.3"
-    compile "org.apache.httpcomponents:httpclient:4.2.1"
-    compile "org.apache.httpcomponents:httpcore:4.2.1"
+    compile "org.apache.httpcomponents:httpclient:4.4.1"
+    compile "org.apache.httpcomponents:httpcore:4.4.1"
     compile "commons-lang:commons-lang:2.6"
     //
 //    compile "io.springfox:springfox-swagger-ui:2.2.2"
