@@ -3,7 +3,7 @@ spring:
     active: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://rm-2ze4nabxe8ktlt2dso.mysql.rds.aliyuncs.com:3306/xmt_yueting
+    url: jdbc:mysql://rm-2ze4nabxe8ktlt2dso.mysql.rds.aliyuncs.com:3306/xmt_yueting?characterEncoding=utf-8&useSSL=false
     username: root
     password: Aptx4869
   jpa:

@@ -3,10 +3,7 @@ package com.keyi.yueting.domain;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -17,22 +14,23 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class YtAdmin {
 
-    @Id
-    @GeneratedValue
 //    @Min(value = 18, message = "")
 //    @NotNull
 //    @Max()
 //    @Length()
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @NotBlank(message = "这个字段必传")
-    @Column(length = 5)
-    private Integer role_id;
+    @Column(name = "role_id")
+    private Integer roleId;
 
-    @Column(length = 32)
+    @Column(name = "username", length = 32)
     private String username;
 
     @NotNull(message = "")
-    @Column(length = 32)
+    @Column(name = "password", length = 32)
     private String password;
 }
