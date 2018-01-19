@@ -7,17 +7,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
- * Created by 廖师兄
- * 2016-11-03 23:07
+ * @author qiupengxie
  */
 @Data
 @Entity
 public class YtOrderRecharge {
-
-    //    @Min(value = 18, message = "")
-    //    @NotNull
-    //    @Max()
-    //    @Length()
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,11 +28,9 @@ public class YtOrderRecharge {
     @Column(length = 32)
     private String channelId;
 
-
     @NotNull(message = "")
     @Column(length = 32)
     private String channelName;
-
 
     @NotNull(message = "")
     @Column(length = 32)
@@ -55,7 +47,6 @@ public class YtOrderRecharge {
     @NotNull(message = "")
     @Column(length = 32)
     private Integer payTime;
-
 
     @Column(length = 32)
     private Integer isPay;

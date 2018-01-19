@@ -10,17 +10,11 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
- * Created by 廖师兄
- * 2016-11-03 23:07
+ * @author qiupengxie
  */
 @Data
 @Entity
 public class YtPositionData {
-
-    //    @Min(value = 18, message = "")
-    //    @NotNull
-    //    @Max()
-    //    @Length()
 
     @Id
     @GeneratedValue
