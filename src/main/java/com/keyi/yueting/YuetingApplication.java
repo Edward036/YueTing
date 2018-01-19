@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
- *
  * @author qiupengxie
  */
 @SpringBootApplication
@@ -19,6 +18,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("com.keyi")
 public class YuetingApplication {
     public static void main(String[] args) {
+
         SpringApplication.run(YuetingApplication.class, args);
     }
 }
