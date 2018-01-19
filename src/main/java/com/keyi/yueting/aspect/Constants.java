@@ -21,8 +21,9 @@ public class Constants {
 	public static final String aipToken = "GkVYfHgpN2AMHSBrfmKqETMjmQrZPoOP";
 	// url
 	private static String url = "http://yi-xin.oss-cn-shanghai.aliyuncs.com";
-	public static String url_image1 = url + "/a0_1_2.jpg";
-	public static String url_image2 = url + "/a0_1_3.jpg";
+	private static String OSS = "http://yi-xin.oss-cn-shanghai.aliyuncs.com";
+	public static String url_image1 = OSS + "/a0_1_2.jpg";
+	public static String url_image2 = OSS + "/a0_1_3.jpg";
 	// ali
 	public static String endpoint = "http://oss-cn-shanghai.aliyuncs.com";
 	public static String accessKeyId = "LTAIObG9BKE8LCWv";

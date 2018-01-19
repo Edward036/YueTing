@@ -21,7 +21,6 @@ import java.util.List;
 public class YtRecommendController {
     @Autowired
     private RecommendRepository repository;
-    private static final String OSS = "http://yue-ting.oss-cn-beijing.aliyuncs.com/";
     @GetMapping(value = "/recommend")
     public Result getList() {
         List list = repository.findWithNovel();

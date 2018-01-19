@@ -13,14 +13,13 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class YtNovel {
 
-    private static final String OSS = "http://yue-ting.oss-cn-beijing.aliyuncs.com/";
+    //    @Min(value = 18, message = "")
+    //    @NotNull
+    //    @Max()
+    //    @Length()
 
     @Id
-    @GeneratedValue
-//    @Min(value = 18, message = "")
-//    @NotNull
-//    @Max()
-//    @Length()
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(columnDefinition = "int(16) COMMENT '长兄ID，0：没有兄弟，大于0：哥哥ID，即priorId'")
@@ -51,15 +50,19 @@ public class YtNovel {
 
     @NotNull(message = "")
     @Column(columnDefinition = "int(64) COMMENT '基础播放次数'")
-    private Integer ClickNumBase;
+    private Integer clickNumBase;
 
     @NotNull(message = "")
     @Column(columnDefinition = "varchar(64) COMMENT '书名'")
     private String title;
 
     @NotNull(message = "")
-    @Column(columnDefinition = "varchar(256) COMMENT '封面URL'")
+    @Column(name = "cover", columnDefinition = "varchar(256) COMMENT '封面URL'")
     private String cover;
+
+    @NotNull(message = "")
+    @Column(name = "path", length = 256, columnDefinition = "DEFAULT 'http://yue-ting.oss-cn-beijing.aliyuncs.com/'")
+    private String path;
 
     @NotNull(message = "")
     @Column(columnDefinition = "varchar(64) COMMENT '小说栏目名称'")
@@ -84,8 +87,4 @@ public class YtNovel {
     @NotNull(message = "")
     @Column(columnDefinition = "int(16) COMMENT 'updateTime'")
     private Long utime;
-
-//    @ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH})
-//    @JoinColumn(name="novel_id")
-//    private YtRecommend ytRecommend;
 }
