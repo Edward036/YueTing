@@ -56,8 +56,12 @@ public class YtNovel {
     private String cover;
 
     @NotNull(message = "")
-    @Column(name = "path", length = 256, columnDefinition = "varchar(256) COMMENT '存放路径' DEFAULT 'http://yue-ting.oss-cn-beijing.aliyuncs.com/audiobookcover/'")
+    @Column(name = "path", length = 256, columnDefinition = "varchar(256) COMMENT 'OSS地址' DEFAULT 'http://yue-ting.oss-cn-beijing.aliyuncs.com/'")
     private String path;
+
+    @NotNull(message = "")
+    @Column(name = "folder", length = 256, columnDefinition = "varchar(256) COMMENT '存放路径' DEFAULT 'audiobookcover/'")
+    private String folder;
 
     @NotNull(message = "")
     @Column(columnDefinition = "varchar(64) COMMENT '小说栏目名称'")
