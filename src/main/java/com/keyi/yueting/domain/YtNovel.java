@@ -61,7 +61,7 @@ public class YtNovel {
     private String cover;
 
     @NotNull(message = "")
-    @Column(name = "path", length = 256, columnDefinition = "DEFAULT 'http://yue-ting.oss-cn-beijing.aliyuncs.com/'")
+    @Column(name = "path", length = 256, columnDefinition = "varchar(256) COMMENT '存放路径' DEFAULT 'http://yue-ting.oss-cn-beijing.aliyuncs.com/'")
     private String path;
 
     @NotNull(message = "")
