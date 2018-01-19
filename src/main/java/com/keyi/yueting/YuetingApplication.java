@@ -8,22 +8,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+/**
+ *
+ * @author qiupengxie
+ */
 @SpringBootApplication
 @EnableJpaRepositories
 //("entity-manager-factory-ref='entityManagerFactory'")
 //@EnableScheduling
 @ComponentScan("com.keyi")
 public class YuetingApplication {
-
-	public static void main(String[] args) {
-
-		SpringApplication.run(YuetingApplication.class, args);
-	}
-
-	@Bean
-	public EmbeddedServletContainerFactory servletContainer() {
-		JettyEmbeddedServletContainerFactory factory =
-				new JettyEmbeddedServletContainerFactory();
-		return factory;
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(YuetingApplication.class, args);
+    }
 }
