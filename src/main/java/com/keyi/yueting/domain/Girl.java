@@ -15,6 +15,11 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Girl {
 
+    //    @Min(value = 18, message = "")
+    //    @NotNull
+    //    @Max()
+    //    @Length()
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -23,9 +28,6 @@ public class Girl {
     private String cupSize;
 
     @Min(value = 18, message = "")
-//    @NotNull
-//    @Max()
-//    @Length()
     private Integer age;
 
     @NotNull(message = "金额必传")

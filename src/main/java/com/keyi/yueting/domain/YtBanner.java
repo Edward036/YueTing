@@ -2,10 +2,7 @@ package com.keyi.yueting.domain;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by 廖师兄
@@ -16,11 +13,7 @@ import javax.persistence.Id;
 public class YtBanner {
 
     @Id
-    @GeneratedValue
-//    @Min(value = 18, message = "")
-//    @NotNull
-//    @Max()
-//    @Length()
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(columnDefinition = "varchar(1024) COMMENT '文案'")

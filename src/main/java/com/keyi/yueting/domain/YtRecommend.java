@@ -4,19 +4,14 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+
 /**
- * Created by 廖师兄
- * 2016-11-03 23:07
+ * @author qiupengxie
  */
 @Data
 @Entity
 //@Table(appliesTo = "yt_recomment", comment = "首页推荐列表")
 public class YtRecommend {
-
-    //    @Min(value = 18, message = "")
-    //    @NotNull
-    //    @Max()
-    //    @Length()
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

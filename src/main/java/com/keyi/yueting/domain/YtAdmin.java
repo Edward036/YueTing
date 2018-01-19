@@ -14,11 +14,6 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class YtAdmin {
 
-//    @Min(value = 18, message = "")
-//    @NotNull
-//    @Max()
-//    @Length()
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
