@@ -21,9 +21,9 @@ public class YtUser {
     private Integer id;
 
     @NotBlank(message = "这个字段必传")
-    @Column(columnDefinition = "int(2) COMMENT '用户类型：1公众号用户'")
+    @Column(name = "user_type",columnDefinition = "int(2) COMMENT '用户类型：1公众号用户'")
+    private Integer userType;
 
-    private Integer user_type;
     @NotNull(message = "")
     @Column(columnDefinition = "varchar(64) COMMENT '微信openid'")
     private String openId;
